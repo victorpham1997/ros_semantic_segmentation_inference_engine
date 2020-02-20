@@ -1,0 +1,108 @@
+ 
+{
+  "labels": [
+    {
+      "color": [
+        0, 
+        0, 
+        0
+      ], 
+      "instances": true, 
+      "readable": "Unknown", 
+      "name": "unknown", 
+      "evaluate": true
+    }, 
+    {
+      "color": [
+        105, 
+        105, 
+        105
+      ], 
+      "instances": true, 
+      "readable": "Floor", 
+      "name": "floor", 
+      "evaluate": true
+    }, 
+    {
+      "color": [
+        255, 
+        255, 
+        255
+      ], 
+      "instances": false, 
+      "readable": "Wall", 
+      "name": "wall", 
+      "evaluate": true
+    }, 
+    {
+      "color": [
+        255, 
+        255, 
+        0
+      ], 
+      "instances": false, 
+      "readable": "Person", 
+      "name": "person", 
+      "evaluate": true
+    }, 
+    {
+      "color": [
+        255, 
+        0, 
+        255
+      ], 
+      "instances": false, 
+      "readable": "Carpet", 
+      "name": "carpet", 
+      "evaluate": true
+    }, 
+    {
+      "color": [
+        255, 
+        0, 
+        0
+      ], 
+      "instances": false, 
+      "readable": "Escalator", 
+      "name": "escalator", 
+      "evaluate": true
+    }, 
+    {
+      "color": [
+        139, 
+        69, 
+        19
+      ], 
+      "instances": false, 
+      "readable": "Door", 
+      "name": "door", 
+      "evaluate": true
+    }, 
+    {
+      "color": [
+        255, 
+        140, 
+        0
+      ], 
+      "instances": false, 
+      "readable": "Staircase", 
+      "name": "staircase", 
+      "evaluate": true
+    }, 
+    {
+      "color": [
+        255, 
+        192, 
+        203
+      ], 
+      "instances": true, 
+      "readable": "Obstacles", 
+      "name": "obstacles", 
+      "evaluate": true
+    }
+    
+  ], 
+  "version": 1.1, 
+  "mapping": "public", 
+  "folder_structure": "{split}/{content}/{key:.{22}}.{ext}"
+}
