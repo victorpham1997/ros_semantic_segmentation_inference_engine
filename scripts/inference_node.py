@@ -22,8 +22,8 @@ import model
 
 #________________________________ABSOLUTE PATH TO WEIGHT AND LABEL JSON FILE _________________________________
 # ______________________________________EDIT BEFORE RUN_______________________________________________________
-weights_path = os.path.expanduser("~/catkin_ws/src/sementic_seg_inference_engine/scripts/weights.h5")
-json_path = os.path.expanduser("~/catkin_ws/src/sementic_seg_inference_engine/scripts/config.json")
+weights_path = os.path.expanduser("~/catkin_ws/src/ros_sementic_segmentation_inference_engine/scripts/weights.h5")
+json_path = os.path.expanduser("~/catkin_ws/src/ros_sementic_segmentation_inference_engine/scripts/config.json")
 
 
 class seg_node:
