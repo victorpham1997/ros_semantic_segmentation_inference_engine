@@ -20,10 +20,10 @@ import cv2
 from utils import apply_color_map
 import model
 
-#________________________________ABSOLUTE PATH TO WEIGHT AND LABEL JSON FILE _________________________________
-# ______________________________________EDIT BEFORE RUN_______________________________________________________
-weights_path = os.path.expanduser("~/catkin_ws/src/ros_sementic_segmentation_inference_engine/scripts/weights.h5")
-json_path = os.path.expanduser("~/catkin_ws/src/ros_sementic_segmentation_inference_engine/scripts/config.json")
+# Name of the weights and config json file
+weights = "/weights.h5"
+config_json = "/config.json"
+path = os.path.dirname(os.path.abspath(__file__))
 
 
 class seg_node:
@@ -34,7 +34,7 @@ class seg_node:
 		self.sess = tf.Session(config=config)
 		K.set_session(self.sess)
 
-		self.weights = weights_path
+		self.weights = path + weights
 		self.net = model.build_bn(480, 320, 3, train=True)
 		self.net.load_weights(self.weights, by_name=True)
 		self.img_height = self.net.inputs[0].shape[2]
@@ -63,7 +63,7 @@ class seg_node:
 				y = self.net.predict(np.array(x), batch_size=1)
 
 		# Applying colour map based on config.json
-		with open(json_path) as config_file:
+		with open(path + config_json) as config_file:
 		    config = json.load(config_file)
 		labels = config['labels']
 		output = apply_color_map(np.argmax(y[0], axis=-1), labels)

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>sementic_seg_inference_engine</name>
+  <name>ros_semantic_segmentation_inference_engine</name>
   <version>0.0.0</version>
-  <description>The sementic_seg_inference_engine package</description>
+  <description>The ros_semantic_segmentation_inference_engine package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
