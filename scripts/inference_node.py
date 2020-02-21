@@ -21,7 +21,7 @@ from utils import apply_color_map
 import model
 
 # Name of the weights and config json file
-weights = "/weights.h5"
+weights = "/weights4.h5"
 config_json = "/config.json"
 path = os.path.dirname(os.path.abspath(__file__))
 
@@ -45,7 +45,7 @@ class seg_node:
 		# sensor_msgs/Image to cv_img
 		self.bridge = CvBridge() 
 		# Subscriber
-		self.img_subscriber = rospy.Subscriber("/pointgrey_cam/image_raw", Image, self.inference_callback)
+		self.img_subscriber = rospy.Subscriber("/pointgrey_cam/image_rect_color", Image, self.inference_callback)
 
 
 	def inference_callback(self, data):
@@ -67,7 +67,13 @@ class seg_node:
 		    config = json.load(config_file)
 		labels = config['labels']
 		output = apply_color_map(np.argmax(y[0], axis=-1), labels)
-		output = cv2.cvtColor(output, cv2.COLOR_BGR2RGB)
+		mask = cv2.cvtColor(output, cv2.COLOR_BGR2RGB)
+
+		# layering the mask on top of original image
+		overlay = cv2.resize(mask, (480, 320))
+		output = x[0]
+		alpha = 0.5 #opacity ratio
+		cv2.addWeighted(overlay, alpha, output, 1 - alpha,0, output)
 
 		# convert cv2 data to sensor_msgs Image to publish
 		try:

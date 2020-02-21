@@ -66,8 +66,22 @@ labels = config['labels']
 
 output = apply_color_map(np.argmax(y[0], axis=-1), labels)
 
+
 output = cv2.cvtColor(output, cv2.COLOR_BGR2RGB)
-cv2.imwrite('output_sample.png', cv2.resize(output, (image_width, image_width)))
-cv2.imwrite('input_sample.png', cv2.resize(cv2.imread(opt.test_image, 1), (image_width, image_width)))
+
+print(x[0].shape)
+# print(y[0].shape)
+print(cv2.resize(output, (480, 320)).shape)
+# x = x[0]
+
+im = x[0]
+overlay = cv2.resize(output, (480, 320))
+alpha = 0.5
+cv2.addWeighted(overlay, alpha, im, 1 - alpha,0, im)
+cv2.imshow("Output", im)
+cv2.waitKey(0)
+
+# cv2.imwrite('output_sample.png', cv2.resize(output, (image_width, image_width)))
+# cv2.imwrite('input_sample.png', cv2.resize(cv2.imread(opt.test_image, 1), (image_width, image_width)))
 
 ###############
